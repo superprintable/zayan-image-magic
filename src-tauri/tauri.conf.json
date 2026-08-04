@@ -1,0 +1,50 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Zayan Image Magic",
+  "version": "0.1.0",
+  "identifier": "com.syedfaraz.zayan-image-magic",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Zayan Image Magic",
+        "width": 1120,
+        "height": 760,
+        "minWidth": 880,
+        "minHeight": 620,
+        "resizable": true,
+        "center": true
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis", "msi"],
+    "publisher": "Syed Faraz Ahmad",
+    "copyright": "Copyright © 2026 Syed Faraz Ahmad",
+    "category": "Utility",
+    "shortDescription": "Local image format converter",
+    "longDescription": "Zayan Image Magic converts images locally to WebP, AVIF, JPEG, PNG, GIF, BMP, and TIFF. Made by Syed Faraz Ahmad.",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "windows": {
+      "nsis": {
+        "installMode": "currentUser",
+        "displayLanguageSelector": false
+      }
+    }
+  }
+}
