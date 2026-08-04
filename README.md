@@ -2,17 +2,18 @@
 
 Local desktop image converter by **Syed Faraz Ahmad**. Convert PNG, JPEG, WebP, AVIF, GIF, BMP, and TIFF entirely on your machine — no uploads.
 
+**Repo:** [github.com/superprintable/zayan-image-magic](https://github.com/superprintable/zayan-image-magic)  
+**Latest release:** [v0.1.0](https://github.com/superprintable/zayan-image-magic/releases/tag/v0.1.0)
+
 ## Download (Windows x64)
 
-Ready-to-run builds are in the [`release/`](release/) folder:
+Grab installers from the [Releases](https://github.com/superprintable/zayan-image-magic/releases/latest) page:
 
 | File | Use |
 |------|-----|
 | **Zayan-Image-Magic-Setup-0.1.0-x64.exe** | Recommended installer (NSIS) — Start Menu + uninstall |
 | **Zayan-Image-Magic-0.1.0-x64.msi** | Enterprise / msiexec installer |
 | **Zayan Image Magic.exe** | Portable exe (double-click; needs WebView2) |
-
-Double-click the **Setup** exe to install for yourself, or run the portable **Zayan Image Magic.exe** with no install step.
 
 Requires [WebView2 Runtime](https://developer.microsoft.com/microsoft-edge/webview2/) (preinstalled on most Windows 10/11 PCs).
 
@@ -32,11 +33,13 @@ Requires [WebView2 Runtime](https://developer.microsoft.com/microsoft-edge/webvi
 - Windows 10/11
 - [Node.js](https://nodejs.org/) 20+
 - [Rust](https://rustup.rs/) (stable)
-- NASM is bundled under `tools/nasm` (used when building AVIF)
+- [NASM](https://www.nasm.us/) on `PATH` (needed to build AVIF via rav1e). Optional helper path: put binaries in `tools/nasm/`
 
 ### Setup
 
 ```bash
+git clone https://github.com/superprintable/zayan-image-magic.git
+cd zayan-image-magic
 npm install
 ```
 
@@ -65,8 +68,6 @@ Outputs:
 - `src-tauri/target/release/bundle/nsis/*-setup.exe` — NSIS installer
 - `src-tauri/target/release/bundle/msi/*.msi` — MSI installer
 
-Friendly copies are also written to `release/` after a successful build (or copy them from the paths above).
-
 ## Accuracy notes
 
 - **Lossless** targets (PNG, WebP lossless, AVIF quality 100, BMP, TIFF) keep pixel fidelity within the codec’s lossless path.
@@ -74,7 +75,7 @@ Friendly copies are also written to `release/` after a successful build (or copy
 
 ## Stack
 
-- Tauri 2 + React + TypeScript (2026 Windows NSIS + MSI bundling)
+- Tauri 2 + React + TypeScript (Windows NSIS + MSI bundling)
 - Rust `image` + `webp` + `ravif` conversion engine
 
 Made by Syed Faraz Ahmad · 2026
